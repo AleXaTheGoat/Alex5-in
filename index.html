@@ -31,24 +31,41 @@
     <div class="container" id="soggetti"></div>
 
     <script>
-        // Carica i dati dal file JSON
+        // Carica i dati dal file JSON e stampa i dati nella console
         fetch('dati.json')
-            .then(response => response.json())
-            .then(data => {
-                const container = document.getElementById('soggetti');
-                data.forEach(soggetto => {
-                    const card = document.createElement('div');
-                    card.className = 'card';
-                    card.innerHTML = `
-                        <img src="${soggetto.thumb}" alt="${soggetto.nome}">
-                        <h3>${soggetto.nome} ${soggetto.cognome}</h3>
-                        <p>Città: ${soggetto.città}</p>
-                        <a href="${soggetto.pagina}">Scopri di più</a>
-                    `;
-                    container.appendChild(card);
-                });
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Errore HTTP: ${response.status}`);
+                }
+                return response.json();
             })
-            .catch(error => console.error('Errore nel caricamento dei dati:', error));
+            .then(data => {
+                // Stampa i dati JSON nella console
+                console.log('Dati caricati dal file JSON:', data);
+
+                const container = document.getElementById('soggetti');
+                if (data.length === 0) {
+                    container.innerHTML = '<p>Nessun dato disponibile.</p>';
+                } else {
+                    data.forEach(soggetto => {
+                        const card = document.createElement('div');
+                        card.className = 'card';
+                        card.innerHTML = `
+                            <img src="${soggetto.thumb}" alt="${soggetto.nome}">
+                            <h3>${soggetto.nome} ${soggetto.cognome}</h3>
+                            <p>Città: ${soggetto.città}</p>
+                            <p>Età: ${soggetto.età}</p>
+                            <p>Residenza: ${soggetto.residenza}</p>
+                            <a href="${soggetto.pagina}">Scopri di più</a>
+                        `;
+                        container.appendChild(card);
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Errore nel caricamento dei dati:', error);
+                document.getElementById('soggetti').innerHTML = '<p>Errore nel caricamento dei dati.</p>';
+            });
     </script>
 </body>
 </html>
