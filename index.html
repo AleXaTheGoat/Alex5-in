@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elenco Soggetti</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { display: flex; flex-wrap: wrap; gap: 20px; }
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            width: 150px;
+            text-align: center;
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .card a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Elenco dei Soggetti</h1>
+    <div class="container" id="soggetti"></div>
+
+    <script>
+        // Carica i dati dal file JSON
+        fetch('dati.json')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('soggetti');
+                data.forEach(soggetto => {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.innerHTML = `
+                        <img src="${soggetto.thumb}" alt="${soggetto.nome}">
+                        <h3>${soggetto.nome}</h3>
+                        <p>${soggetto.caratteristica}</p>
+                        <a href="${soggetto.pagina}">Scopri di più</a>
+                    `;
+                    container.appendChild(card);
+                });
+            })
+            .catch(error => console.error('Errore nel caricamento dei dati:', error));
+    </script>
+</body>
+</html>

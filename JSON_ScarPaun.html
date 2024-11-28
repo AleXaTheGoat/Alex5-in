@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<head>
+    <title>Dati JSON Stampati</title>
+</head>
+<body>
+
+    <h1>Dati Utenti</h1>
+    <div id="dataContainer"></div>
+
+    <script>
+        const datiJSON = [
+          {
+            "nome": "MALEX",
+            "cognome": "SCARPAUN",
+            "età": 19,
+            "città": "Gaza",
+            "residenza": "Tel Aviv",
+            "indirizzo": "Via Benitler 21",
+            "telefono": [
+              {
+                "tipo": "casa",
+                "numero": "02 369 801 5719"
+              },
+              {
+                "tipo": "cellulare",
+                "numero": "+39 345 294 1909"
+              }
+            ],
+            "sport": [
+              {
+                "tipo": "terra",
+                "nome": "boxe"
+              }
+            ]
+          },
+          {
+            "nome": "Maul",
+            "cognome": "Schex",
+            "età": 12,
+            "città": "New York",
+            "residenza": "ND",
+            "indirizzo": "Via Gugliemo 20",
+            "telefono": [
+              {
+                "tipo": "casa",
+                "numero": "02 369 801 5519"
+              },
+              {
+                "tipo": "cellulare",
+                "numero": "+39 345 694 1909"
+              }
+            ],
+            "sport": [
+              {
+                "tipo": "acqua",
+                "nome": "gara nautica"
+              }
+            ]
+          },
+          {
+            "nome": "ALERIO",
+            "cognome": "PANPITTA",
+            "età": 20,
+            "città": "Mosca",
+            "residenza": "Kiev",
+            "indirizzo": "Via Ed'dyocane 69",
+            "telefono": [
+              {
+                "tipo": "casa",
+                "numero": "02 369 801 5718"
+              },
+              {
+                "tipo": "cellulare",
+                "numero": "+39 345 294 1901"
+              }
+            ],
+            "sport": [
+              {
+                "tipo": "aria",
+                "nome": ""
+              }
+            ]
+          }
+        ];
+
+        // Accesso ai dati di ciascuna persona e stampa manuale
+        const container = document.getElementById('dataContainer');
+
+        const persona1 = datiJSON[0];
+        container.innerHTML += `
+            <h2>${persona1.nome} ${persona1.cognome}</h2>
+            <p>Età: ${persona1.età}</p>
+            <p>Città: ${persona1.città}</p>
+            <p>Residenza: ${persona1.residenza}</p>
+            <p>Indirizzo: ${persona1.indirizzo}</p>
+            <p>Telefono (Casa): ${persona1.telefono[0].numero}</p>
+            <p>Telefono (Cellulare): ${persona1.telefono[1].numero}</p>
+            <p>Sport: ${persona1.sport[0].nome} (${persona1.sport[0].tipo})</p>
+        `;
+
+        const persona2 = datiJSON[1];
+        container.innerHTML += `
+            <h2>${persona2.nome} ${persona2.cognome}</h2>
+            <p>Età: ${persona2.età}</p>
+            <p>Città: ${persona2.città}</p>
+            <p>Residenza: ${persona2.residenza}</p>
+            <p>Indirizzo: ${persona2.indirizzo}</p>
+            <p>Telefono (Casa): ${persona2.telefono[0].numero}</p>
+            <p>Telefono (Cellulare): ${persona2.telefono[1].numero}</p>
+            <p>Sport: ${persona2.sport[0].nome} (${persona2.sport[0].tipo})</p>
+        `;
+
+        const persona3 = datiJSON[2];
+        container.innerHTML += `
+            <h2>${persona3.nome} ${persona3.cognome}</h2>
+            <p>Età: ${persona3.età}</p>
+            <p>Città: ${persona3.città}</p>
+            <p>Residenza: ${persona3.residenza}</p>
+            <p>Indirizzo: ${persona3.indirizzo}</p>
+            <p>Telefono (Casa): ${persona3.telefono[0].numero}</p>
+            <p>Telefono (Cellulare): ${persona3.telefono[1].numero}</p>
+            <p>Sport: ${persona3.sport[0].nome} (${persona3.sport[0].tipo})</p>
+        `;
+    </script>
+
+</body>
+</html>
