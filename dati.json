@@ -1,0 +1,24 @@
+[
+  {
+  "id": 01,
+  "nome": "MALEX",
+  "cognome": "SCARPAUN",
+  "età": 19,
+  "città": "Gaza",
+  "residenza": "Tel Aviv",
+  "indirizzo": "Via Benitler 21",
+  "thumb": "scarpaun.jpg",
+  "pagina": "scarpaun.html"
+  },
+  {
+    "id": 2,
+    "nome": "Maul",
+    "cognome": "Schex",
+    "età": 12,
+    "città": "New York",
+    "residenza": "ND",
+    "indirizzo": "Via Gugliemo 20",
+    "thumb": "Schex.jpg",
+    "pagina": "Schex.html"
+  }
+]
