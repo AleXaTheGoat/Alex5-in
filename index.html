@@ -41,8 +41,8 @@
                     card.className = 'card';
                     card.innerHTML = `
                         <img src="${soggetto.thumb}" alt="${soggetto.nome}">
-                        <h3>${soggetto.nome}</h3>
-                        <p>${soggetto.caratteristica}</p>
+                        <h3>${soggetto.nome} ${soggetto.cognome}</h3>
+                        <p>Città: ${soggetto.città}</p>
                         <a href="${soggetto.pagina}">Scopri di più</a>
                     `;
                     container.appendChild(card);
